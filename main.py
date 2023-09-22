@@ -33,4 +33,5 @@ def index():
     return '<!DOCTYPE html><html><head><title>Regex Extractor for Excel</title></head><body><h2>Upload Excel File</h2><form action="/" method="post" enctype="multipart/form-data"><input type="file" name="file" required><br><br><label for="column">Select Column:</label><input type="text" name="column" value="Company  Location" required><br><br><label for="regex">Enter Regex Pattern:</label><input type="text" name="regex" value="(^.*[a-z\d]{1})([A-Z]{1}.*)" required><br><br><input type="submit" value="Extract"></form></body></html>'
 
 if __name__ == '__main__':
+
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
