@@ -14,14 +14,14 @@ COPY . /app
 
 # Install the required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 2 --timeout 0 main:app
 # Make port 5000 available to the outside world
-EXPOSE 5000
+#EXPOSE 8080
 
 # Define environment variable for Flask to run in production mode
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_ENV=production
+#ENV FLASK_APP=app.py
+#ENV FLASK_RUN_HOST=0.0.0.0
+#ENV FLASK_ENV=production
 
 # Run the application
-CMD ["flask", "run"]
+#CMD ["flask", "run"]
